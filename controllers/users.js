@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 const User = require('../models/user');
 
+
 const usersGet = (req, res = response)  => {
 
     const { q, nombre = 'No name', apikey } = req.query;
@@ -19,8 +20,6 @@ const usersPost = async(req, res = response)  => {
 
     const { name, email, password, role } = req.body;
     const user = new User({ name, email, password, role });
-
-    //Check email exists
 
     //Encrypt password
     const salt = bcryptjs.genSaltSync();
