@@ -16,7 +16,16 @@ const emailValidate = async(email = '') => {
     }
 }
 
+const userByID = async(id) => {
+    //Check email exists
+    const emailUserID = await User.findById(id);
+    if (!emailUserID) {
+        throw new Error(`The ID ${id} does not exist`);
+    }
+}
+
 module.exports = {
     roleValidate,
-    emailValidate
+    emailValidate,
+    userByID
 }
